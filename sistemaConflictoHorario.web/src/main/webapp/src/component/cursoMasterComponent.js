@@ -65,7 +65,7 @@ define(['controller/selectionController', 'model/cacheModel', 'model/cursoMaster
             this.tabModel = new App.Model.TabModel(
                     {
                         tabs: [
-                            {label: "Seccion_curso", name: "seccion_curso", enable: true},
+                            {label: "Seccion del curso", name: "seccion_curso", enable: true},
                         ]
                     }
             );

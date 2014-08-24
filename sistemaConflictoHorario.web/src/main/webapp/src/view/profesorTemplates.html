@@ -4,11 +4,11 @@
     <table class="table striped">
     <thead>
     <tr>
-		 <th>Anios Experiencia</th>
-		 <th>Num Publicaciones</th>
-		 <th>Fecha Vinculacion</th>
-		 <th>Name</th>
-    <th>Actions</th>
+		 <th>Años Experiencia</th>
+		 <th>Número de Ppblicaciones</th>
+		 <th>Fecha de vinculación</th>
+		 <th>Nombre</th>
+    <th>Acciones</th>
     </tr>
     </thead>
     <tbody>
@@ -20,10 +20,10 @@
 		<td><%= htmlEncode(profesor.getDisplay('name')) %></td>
     <td>
     <% if(showEdit) {%>
-    <a onclick="Backbone.trigger('<%= componentId %>-profesor-edit',{id:<%= profesor.id %>}); return false" >Edit</a> |
+    <a onclick="Backbone.trigger('<%= componentId %>-profesor-edit',{id:<%= profesor.id %>}); return false" >Editar</a> |
 	<% } %> 
 	<% if(showDelete) {%>
-    <a onclick="Backbone.trigger('<%= componentId %>-profesor-delete',{id:<%= profesor.id %>}); return false" >Delete</a> 
+    <a onclick="Backbone.trigger('<%= componentId %>-profesor-delete',{id:<%= profesor.id %>}); return false" >Eliminar</a> 
 	<% } %>    
 	</td>
     </tr>
@@ -40,15 +40,15 @@
     <input type="hidden" name="id" value="<%= profesor.id %>"/>
     <% }%>
 		<div class="form-group" >
-		<label for="aniosExperiencia">Anios Experiencia</label>
+		<label for="aniosExperiencia">Años de experiencía</label>
     	<input type="text" class="form-control" id="aniosExperiencia" name="aniosExperiencia" placeholder="Enter value" value="<%= profesor.get('aniosExperiencia') %>"/>	
 		</div>
 		<div class="form-group" >
-		<label for="numPublicaciones">Num Publicaciones</label>
+		<label for="numPublicaciones">Número de publicaciones</label>
     	<input type="text" class="form-control" id="numPublicaciones" name="numPublicaciones" placeholder="Enter value" value="<%= profesor.get('numPublicaciones') %>"/>	
 		</div>
 		<div class="form-group" >
-			<label for="fechaVinculacion">Fecha Vinculacion</label>
+			<label for="fechaVinculacion">Fecha de vinculación</label>
     		<input type="text" data-converter="date" data-date-format="dd/mm/yyyy" class="form-control" id="fechaVinculacion"  name="fechaVinculacion" placeholder="Enter value" />
     		<%= '<scr'+'ipt>' %>
         	$('#fechaVinculacion').datepicker({autoclose:true});
@@ -56,7 +56,7 @@
     		<%= '</scr'+'ipt>' %>
 		</div>
 		<div class="form-group" >
-		<label for="name">Name</label>
+		<label for="name">Nombre</label>
     	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= profesor.get('name') %>"/>	
 		</div>
     </form>

@@ -33,7 +33,7 @@ define(['model/_profesorModel'], function() {
  	validate: function(attrs,options){
             var validationMessage = "";
             if(!attrs.name){
-                validationMessage = "The name can't be empty.";
+                validationMessage += "The name can't be empty.\n";
             }
             if(validationMessage.length>0){
                return validationMessage;

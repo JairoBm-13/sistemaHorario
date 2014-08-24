@@ -32,7 +32,16 @@ define(['component/_CRUDComponent', 'controller/toolbarController', 'model/toolb
         name: 'seccion',
         model: App.Model.SeccionModel,
         listModel: App.Model.SeccionList,
-        controller : App.Controller.SeccionController
+        controller : App.Controller.SeccionController,
+        postInit:function(){
+            var self = this;
+            self.toolbarModel.set('showPrint', false);
+            self.toolbarModel.set('showSearch', false);
+            self.toolbarModel.set('saveName', 'Guardar');
+            self.toolbarModel.set('canelName','Cancelar');
+            self.toolbarModel.set('createName','Crear');
+            self.toolbarModel.set('refreshName','Refrescar');
+        }
     });
     return App.Component.SeccionComponent;
 });

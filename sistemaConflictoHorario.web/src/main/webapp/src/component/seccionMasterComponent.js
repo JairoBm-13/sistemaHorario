@@ -89,9 +89,9 @@ define(['controller/selectionController', 'model/cacheModel', 'model/seccionMast
             this.tabModel = new App.Model.TabModel(
                     {
                         tabs: [
-                            {label: "En Espera_seccion", name: "enEspera_seccion", enable: true},
+                            {label: "En espera deseccion", name: "enEspera_seccion", enable: true},
                             ,
-                            {label: "Inscritos_seccion", name: "inscritos_seccion", enable: true},
+                            {label: "Inscritos en seccion", name: "inscritos_seccion", enable: true},
                         ]
                     }
             );
