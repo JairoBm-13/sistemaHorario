@@ -49,7 +49,7 @@
 		</div>
 		<div class="form-group" >
 			<label for="fechaVinculacion">Fecha de vinculación</label>
-    		<input type="text" data-converter="date" data-date-format="dd/mm/yyyy" class="form-control" id="fechaVinculacion"  name="fechaVinculacion" placeholder="Enter value" />
+    		<input type="text" data-converter="date" data-date-format="dd/mm/yyyy" class="form-control" id="fechaVinculacion"  name="fechaVinculacion" placeholder="Ingresar valor" />
     		<%= '<scr'+'ipt>' %>
         	$('#fechaVinculacion').datepicker({autoclose:true});
         	$('#fechaVinculacion').datepicker('setDate',App.Utils.Converter.date.toDate("<%= profesor.get('fechaVinculacion') %>"));
