@@ -60,7 +60,7 @@ define(['controller/_seccionController','delegate/seccionDelegate'], function() 
                         self.cursoCupoModelList = new App.Model.CursoCupoList;
                         _.each(elementos, function(d) {
                             var disponibles = "" + (parseInt(d.attributes.cupoMaximo) - parseInt(d.attributes.inscritos));
-                            var model = new App.Model.SeccionCupoModel({seccion: d.attributes.name, cupos: disponibles});
+                            var model = new App.Model.SeccionCupoModel({seccion: d.attributes.name, cuposMaximos : d.attributes.cupoMaximo,cupos: disponibles});
                             self.seccionCupoModelList.models.push(model);
                         });
                         self._renderCupo(params);

@@ -8,6 +8,7 @@ define(['model/seccionCupoModel'], function() {
     App.Model.CursoCupoModel = Backbone.Model.extend({
         defaults: {
          'seccion' : '',
+         'cuposMaximos':'',
          'cupos' : ''
         },
         getDisplay: function(name) {
