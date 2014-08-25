@@ -38,8 +38,8 @@ define([], function() {
                  Backbone.trigger(self.get('componentId') + '-' + 'error',{event:"validation", message: error.validationError});
           });
         },
-        getDisplay: function(name) {
-         return this.get(name);
+        getDisplay: function(name){
+            return this.get(name);
          
         }
         

@@ -4,9 +4,9 @@
     <table class="table striped">
     <thead>
     <tr>
-		 <th>Años Experiencia</th>
-		 <th>Número de Ppblicaciones</th>
-		 <th>Fecha de vinculación</th>
+		 <th>Anios Experiencia</th>
+		 <th>Numero de Publicaciones</th>
+		 <th>Fecha de vinculacion</th>
 		 <th>Nombre</th>
     <th>Acciones</th>
     </tr>
@@ -40,15 +40,15 @@
     <input type="hidden" name="id" value="<%= profesor.id %>"/>
     <% }%>
 		<div class="form-group" >
-		<label for="aniosExperiencia">Años de experiencía</label>
-    	<input type="text" class="form-control" id="aniosExperiencia" name="aniosExperiencia" placeholder="Enter value" value="<%= profesor.get('aniosExperiencia') %>"/>	
+		<label for="aniosExperiencia">Anios de experiencia</label>
+    	<input type="text" class="form-control" id="aniosExperiencia" name="aniosExperiencia" placeholder="Ingresar valor" value="<%= profesor.get('aniosExperiencia') %>"/>	
 		</div>
 		<div class="form-group" >
-		<label for="numPublicaciones">Número de publicaciones</label>
-    	<input type="text" class="form-control" id="numPublicaciones" name="numPublicaciones" placeholder="Enter value" value="<%= profesor.get('numPublicaciones') %>"/>	
+		<label for="numPublicaciones">Numero de publicaciones</label>
+    	<input type="text" class="form-control" id="numPublicaciones" name="numPublicaciones" placeholder="Ingresar valor" value="<%= profesor.get('numPublicaciones') %>"/>	
 		</div>
 		<div class="form-group" >
-			<label for="fechaVinculacion">Fecha de vinculación</label>
+			<label for="fechaVinculacion">Fecha de vinculacion</label>
     		<input type="text" data-converter="date" data-date-format="dd/mm/yyyy" class="form-control" id="fechaVinculacion"  name="fechaVinculacion" placeholder="Ingresar valor" />
     		<%= '<scr'+'ipt>' %>
         	$('#fechaVinculacion').datepicker({autoclose:true});
@@ -57,7 +57,7 @@
 		</div>
 		<div class="form-group" >
 		<label for="name">Nombre</label>
-    	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= profesor.get('name') %>"/>	
+    	<input type="text" class="form-control" id="name" name="name" placeholder="Ingresar valor" value="<%= profesor.get('name') %>"/>	
 		</div>
     </form>
     </div>

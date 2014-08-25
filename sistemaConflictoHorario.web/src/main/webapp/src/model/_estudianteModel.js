@@ -41,8 +41,9 @@ define([], function() {
           });
         },
         getDisplay: function(name) {
-         return this.get(name);
+         return this.get(name);  
         }
+        
     });
 
     App.Model._EstudianteList = Backbone.Collection.extend({

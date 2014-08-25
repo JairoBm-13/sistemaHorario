@@ -33,11 +33,16 @@ define(['model/_seccionModel'], function() {
  	validate: function(attrs,options){
             var validationMessage = "";
             if(!attrs.name){
-                validationMessage += "The name can't be empty.";
+                validationMessage += "El nombre no puede ser vacio.\n";
+            }
+            if(!attrs.profesor_seccionId){
+                validationMessage += "El profesor no puede ser vacio.";
             }
             if(validationMessage.length>0){
                return validationMessage;
             }
+            
+            
         }
 
     });

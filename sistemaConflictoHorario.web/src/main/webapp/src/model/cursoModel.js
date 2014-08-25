@@ -33,8 +33,20 @@ define(['model/_cursoModel'], function() {
  	validate: function(attrs,options){
             var validationMessage = "";
             if(!attrs.name){
-                validationMessage = "El nombre no puede ser vacio.";
+                validationMessage += "El nombre no puede ser vacio.\n";
             }
+            if(attrs.programa.length > 4){
+                validationMessage += "El programa debe tener 4 letras.";
+            }
+            if(attrs.programa.length < 4){
+                validationMessage += "El programa debe tener 4 letras.";
+            }
+            if((attrs.programa) === (attrs.programa).toLowerCase()){
+                validationMessage += "El programa debe estar en mayuscula.";
+            }
+            
+            
+          
             if(validationMessage.length>0){
                return validationMessage;
             }
