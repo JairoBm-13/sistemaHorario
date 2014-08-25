@@ -38,7 +38,7 @@ define(['component/_CRUDComponent', 'controller/toolbarController', 'model/toolb
             self.toolbarModel.set('showPrint', false);
             self.toolbarModel.set('showSearch', false);
             self.toolbarModel.set('saveName', 'Guardar');
-            self.toolbarModel.set('canelName','Cancelar');
+            self.toolbarModel.set('cancelName','Cancelar');
             self.toolbarModel.set('createName','Crear');
             self.toolbarModel.set('refreshName','Refrescar');
         }
