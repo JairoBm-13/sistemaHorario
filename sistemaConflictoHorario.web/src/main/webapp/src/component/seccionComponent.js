@@ -41,6 +41,8 @@ define(['component/_CRUDComponent', 'controller/toolbarController', 'model/toolb
             self.toolbarModel.set('canelName','Cancelar');
             self.toolbarModel.set('createName','Crear');
             self.toolbarModel.set('refreshName','Refrescar');
+            self.addButton({name:'Cupos',icon:'glyphicon glyphicon-th-list'},
+                function(){self.componentController.cursoCupo();});
         }
     });
     return App.Component.SeccionComponent;

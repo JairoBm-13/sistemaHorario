@@ -69,4 +69,27 @@
 		</div>
     </form>
     </div>
-</script> 
+</script>
+
+<script type="text/template" id="seccionCupoList">
+    <div class="panel panel-default">
+    <table class="table striped">
+    <thead>
+    <tr>
+         <th>Curso</th>
+         <th>Sección</th>
+         <th>Cupos</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% _.each(secciones, function(seccion) { %>
+    <tr>
+            <td><%= htmlEncode(seccion.getDisplay('curso')) %></td>
+            <td><%= htmlEncode(seccion.getDisplay('seccion')) %></td>
+            <td><%= htmlEncode(seccion.getDisplay('cupos')) %></td>
+    </tr>
+    <% }); %>
+    </tbody>
+    </table>
+    </div>
+</script>
