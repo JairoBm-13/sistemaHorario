@@ -84,26 +84,24 @@
     <tbody>
     <% _.each(secciones, function(seccion) { %>
         <% if(htmlEncode(seccion.getDisplay('cupos'))< 0) {%>
-    <tr class='danger'>
-            <td><%= htmlEncode(seccion.getDisplay('seccion')) %></td>
-            <td><%= htmlEncode(seccion.getDisplay('cuposMaximos')) %></td>
-            <td><%= htmlEncode(seccion.getDisplay('cupos')) %></td>
-    </tr>
-    <%}%>
-    <% else if (htmlEnconde(seccion.getDisplay('cupos')< htmlEnconde(seccion.getDisplay('cuposMaximos'))*0.20){%>
-        <tr class='info'>
-            <td><%= htmlEncode(seccion.getDisplay('seccion')) %></td>
-            <td><%= htmlEncode(seccion.getDisplay('cuposMaximos')) %></td>
-            <td><%= htmlEncode(seccion.getDisplay('cupos')) %></td>
-    </tr>
-    <%}%>
-    <%else{
-        <tr>
-            <td><%= htmlEncode(seccion.getDisplay('seccion')) %></td>
-            <td><%= htmlEncode(seccion.getDisplay('cuposMaximos')) %></td>
-            <td><%= htmlEncode(seccion.getDisplay('cupos')) %></td>
-    </tr>
-    <%}%>
+            <tr class='danger'>
+                <td><%= htmlEncode(seccion.getDisplay('seccion')) %></td>
+                <td><%= htmlEncode(seccion.getDisplay('cuposMaximos')) %></td>
+                <td><%= htmlEncode(seccion.getDisplay('cupos')) %></td>
+            </tr>  
+        <% } else if (htmlEncode(seccion.getDisplay('cupos')) > htmlEncode(seccion.getDisplay('cuposMaximos'))*0.80){%>
+            <tr class='warning'>
+                <td><%= htmlEncode(seccion.getDisplay('seccion')) %></td>
+                <td><%= htmlEncode(seccion.getDisplay('cuposMaximos')) %></td>
+                <td><%= htmlEncode(seccion.getDisplay('cupos')) %></td>
+            </tr>
+        <% }else{%>
+            <tr>
+                <td><%= htmlEncode(seccion.getDisplay('seccion')) %></td>
+                <td><%= htmlEncode(seccion.getDisplay('cuposMaximos')) %></td>
+                <td><%= htmlEncode(seccion.getDisplay('cupos')) %></td>
+            </tr>
+        <%}%>
     <% }); %>
     </tbody>
     </table>

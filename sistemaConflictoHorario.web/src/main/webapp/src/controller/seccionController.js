@@ -37,7 +37,7 @@ define(['controller/_seccionController','delegate/seccionDelegate'], function() 
         _renderCupo: function() {
             var self = this;
             this.$el.slideUp("fast", function() {
-                self.$el.html(self.listCupoTemplate({secciones: self.cursoCupoModelList.models}));
+                self.$el.html(self.listCupoTemplate({secciones: self.seccionCupoModelList.models}));
                 self.$el.slideDown("fast");
             });
         },
@@ -45,19 +45,19 @@ define(['controller/_seccionController','delegate/seccionDelegate'], function() 
             if (params) {
                 var data = params.data;
             }
-            if (App.Utils.eventExists(this.componentId + '-' + 'instead-curso-list')) {
-                Backbone.trigger(this.componentId + '-' + 'instead-curso-list', {view: this, data: data});
+            if (App.Utils.eventExists(this.componentId + '-' + 'instead-seccion-list')) {
+                Backbone.trigger(this.componentId + '-' + 'instead-seccion-list', {view: this, data: data});
             } else {
-                Backbone.trigger(this.componentId + '-' + 'pre-curso-list', {view: this, data: data});
+                Backbone.trigger(this.componentId + '-' + 'pre-seccion-list', {view: this, data: data});
                 var self = this;
-                if (!this.cursoModelList) {
-                    this.cursoModelList = new this.listModelClass();
+                if (!this.seccionModelList) {
+                    this.seccionModelList = new this.listModelClass();
                 }
-                this.cursoModelList.fetch({
+                this.seccionModelList.fetch({
                     data: data,
                     success: function() {
-                        var elementos = self.cursoModelList.models;
-                        self.cursoCupoModelList = new App.Model.CursoCupoList;
+                        var elementos = self.seccionModelList.models;
+                        self.seccionCupoModelList = new App.Model.SeccionCupoList;
                         _.each(elementos, function(d) {
                             var disponibles = "" + (parseInt(d.attributes.cupoMaximo) - parseInt(d.attributes.inscritos));
                             var model = new App.Model.SeccionCupoModel({seccion: d.attributes.name, cuposMaximos : d.attributes.cupoMaximo,cupos: disponibles});
