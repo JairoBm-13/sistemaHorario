@@ -35,11 +35,6 @@ define(['model/_seccionModel'], function() {
             if(!attrs.name){
                 validationMessage += "The name can't be empty.";
             }
-            var profesor = this.getDisplay('profesor_seccionId');
-            
-            if(attrs.profesor_seccionId){
-                validationMessage += "Este profeso no puede tener una seccion.";
-            }
             if(validationMessage.length>0){
                return validationMessage;
             }

@@ -35,6 +35,9 @@ define(['model/_profesorModel'], function() {
             if(!attrs.name){
                 validationMessage += "The name can't be empty.\n";
             }
+            if(attrs.aniosExperiencia < 5){
+                validationMessage +="Profesor no admitido";
+            }
             if(validationMessage.length>0){
                return validationMessage;
             }
