@@ -4,9 +4,9 @@
     <table class="table striped">
     <thead>
     <tr>
-		 <th>Anios Experiencia</th>
-		 <th>Numero de Publicaciones</th>
-		 <th>Fecha de vinculacion</th>
+		 <th>A&ntilde;os de experiencia</th>
+		 <th>N&uacute;mero de Publicaciones</th>
+		 <th>Fecha de vinculaci&oacute;n</th>
 		 <th>Nombre</th>
     <th>Acciones</th>
     </tr>
@@ -40,15 +40,15 @@
     <input type="hidden" name="id" value="<%= profesor.id %>"/>
     <% }%>
 		<div class="form-group" >
-		<label for="aniosExperiencia">Anios de experiencia</label>
+		<label for="aniosExperiencia">A&ntidle;os de experiencia</label>
     	<input type="text" class="form-control" id="aniosExperiencia" name="aniosExperiencia" placeholder="Ingresar valor" value="<%= profesor.get('aniosExperiencia') %>"/>	
 		</div>
 		<div class="form-group" >
-		<label for="numPublicaciones">Numero de publicaciones</label>
+		<label for="numPublicaciones">N&uacute;mero de publicaciones</label>
     	<input type="text" class="form-control" id="numPublicaciones" name="numPublicaciones" placeholder="Ingresar valor" value="<%= profesor.get('numPublicaciones') %>"/>	
 		</div>
 		<div class="form-group" >
-			<label for="fechaVinculacion">Fecha de vinculacion</label>
+			<label for="fechaVinculacion">Fecha de vinculaci&oacute;n</label>
     		<input type="text" data-converter="date" data-date-format="dd/mm/yyyy" class="form-control" id="fechaVinculacion"  name="fechaVinculacion" placeholder="Ingresar valor" />
     		<%= '<scr'+'ipt>' %>
         	$('#fechaVinculacion').datepicker({autoclose:true});
