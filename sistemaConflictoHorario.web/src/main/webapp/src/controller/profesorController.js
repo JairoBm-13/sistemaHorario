@@ -44,6 +44,73 @@ define(['controller/_profesorController','delegate/profesorDelegate'], function(
                 mensaje = "El profesor es asistente";
             }
             alert(mensaje);
+        },
+        
+         postInit: function(options) {
+            var self = this;
+            this.listReconocidoTemplate = _.template($('#profesorReconocidoList').html());
+            this.listReconocidoModelClass = options.listModelClass;
+     },
+     
+     _renderReconocido: function() {
+            var self = this;
+            /*Aquí se utiliza el efecto gráfico backbone deslizar. “$el” hace referencia al <div id=”main”> ubicado en el index.html. Dentro de este div se despliegue la tabla.*/
+            this.$el.slideUp("fast", function() {
+                /*Establece que en el <div> se despliegue el template de la variable “”. Como parámetros entran las variables establecidas dentro de los tags <%%> con sus valores como un objeto JSON. En este caso, la propiedad sports tendrá la lista que instanció “sportSearch” en la variable del bucle <% _.each(sports, function(sport) { %>*/
+ 
+                self.$el.html(self.listReconocidoTemplate({profesors: self.profesorReconocidoModelList.models}));
+                self.$el.slideDown("fast");
+            });
+        },
+        
+     profesorReconocido: function(params) {
+        //Elementos para invocar el servicio getSports
+            if (params) {
+                var data = params.data;
+            }
+            if (App.Utils.eventExists(this.componentId + '-' + 'instead-profesor-list')) {
+                Backbone.trigger(this.componentId + '-' + 'instead-profesor-list', {view: this, data: data});
+            } else {
+                Backbone.trigger(this.componentId + '-' + 'pre-profesor-list', {view: this, data: data});
+                var self = this;
+                if (!this.profesorModelList) {
+                    this.profesorModelList = new this.listModelClass();
+                }
+                //se obtienen los deportes del servicio getSports
+                this.profesorModelList.fetch({
+                    data: data,
+                    success: function() {
+                        var elementos = self.profesorModelList.models;
+                        //Ahora se instancia el nuevo modelo construido
+                        self.profesorReconocidoModelList = new App.Model.ProfesorReconocidoList;
+                        //Se itera sobre la variable elementos, que corresponden a la lista de modelos obtenida del servico REST getSports
+                        _.each(elementos, function(d) {
+                            //Se hace el cálculo del nuevo campo
+                            var fecha = d.attributes.fechaVinculacion;
+                            var actual = new Date();
+                            var anioVin = fecha.split("/");
+                            var anios = "" + actual.getFullYear() - anioVin[2];
+                            if(actual.getMonth() +1===anioVin[1]){
+                                if(actual.getDay() < anioVin[0]){
+                                anios -= 1; }
+                               }
+                            else if(actual.getMonth()+1 < anioVin[1]){
+                                    anios -= 1;
+                             }
+                            /*Ahora se instancia un SportPromModel, con un nuevo objeto JSON como parámetro como constructor (antes sportModel), extrayendo los datos de “d”.*/
+                            var model = new App.Model.ProfesorReconocidoModel({name: d.attributes.name, anios: anios});
+                            //y se agrega finalmente a los modelos prom de la lista.
+                            self.profesorReconocidoModelList.models.push(model);
+                        });
+                        //Se invoca la función de renderizado para que muestre los resultados en la nueva lista.
+                        self._renderReconocido(params);
+                        Backbone.trigger(self.componentId + '-' + 'post-profesor-list', {view: self});
+                    },
+                    error: function(mode, error) {
+                        Backbone.trigger(self.componentId + '-' + 'error', {event: 'profesor-list', view: self, error: error});
+                    }
+                });
+            }
         }
     });
     return App.Controller.ProfesorController;
