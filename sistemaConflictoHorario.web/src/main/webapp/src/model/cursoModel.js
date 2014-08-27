@@ -41,7 +41,7 @@ define(['model/_cursoModel'], function() {
             if(attrs.programa.length < 4){
                 validationMessage += "El programa debe tener 4 letras.";
             }
-            if((attrs.programa) === (attrs.programa).toLowerCase()){
+            if((attrs.programa) !== (attrs.programa).toUpperCase()){
                 validationMessage += "El programa debe estar en mayuscula.";
             }
             
