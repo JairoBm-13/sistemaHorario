@@ -9,8 +9,6 @@
 		 <th>Salon</th>
 		 <th>Inscritos</th>
 		 <th>Id del profesor de la secci&oacute;n</th>
-                 <th>Inscritos real</th>
-                 <th>Extracreditables</th>
             <th>Acciones</th>
     </tr>
     </thead>
@@ -22,8 +20,6 @@
 		<td><%= htmlEncode(seccion.getDisplay('salon')) %></td>
 		<td><%= htmlEncode(seccion.getDisplay('inscritos')) %></td>
 		<td><%= htmlEncode(seccion.getDisplay('profesor_seccionId')) %></td>
-                <td><a onclick="Backbone.trigger('<%= componentId %>-seccion-inscritos',{id:<%= seccion.id %>}); return false" >Ver inscritos</a></td>
-                <td><a onclick="Backbone.trigger('<%= componentId %>-seccion-extra',{id:<%= seccion.id %>}); return false" >Ver extracreditables</a></td>
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-seccion-edit',{id:<%= seccion.id %>}); return false" >Editar</a> |
