@@ -62,6 +62,7 @@ define(['controller/_seccionController','delegate/seccionDelegate'], function() 
                             var disponibles = "" + (parseInt(d.attributes.cupoMaximo) - parseInt(d.attributes.inscritos));
                             var model = new App.Model.SeccionCupoModel({seccion: d.attributes.name, cuposMaximos : d.attributes.cupoMaximo,cupos: disponibles});
                             self.seccionCupoModelList.models.push(model);
+                            console.log(self.seccionCupoModelList.models.lenght);
                         });
                         self._renderCupo(params);
                         Backbone.trigger(self.componentId + '-' + 'post-seccion-list', {view: self});

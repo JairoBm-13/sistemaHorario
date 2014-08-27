@@ -82,6 +82,10 @@ define(['controller/selectionController', 'model/cacheModel', 'model/seccionMast
                         Backbone.trigger(self.componentId + '-' + 'error', {event: 'seccion-master-save', view: self, error: error});
                     }
                 });
+            Backbone.on(uComponent.componentId+'seccion-extra',function(params){
+                
+            
+            });
             });
         },
         renderChilds: function(params) {
@@ -89,9 +93,9 @@ define(['controller/selectionController', 'model/cacheModel', 'model/seccionMast
             this.tabModel = new App.Model.TabModel(
                     {
                         tabs: [
-                            {label: "En espera de secci&oacute;n", name: "enEspera_seccion", enable: true},
+                            {label: "En espera de secci&oacute;n", name: "Estudiantes en espera de seccion", enable: true},
                             ,
-                            {label: "Inscritos en secci&oacute;n", name: "inscritos_seccion", enable: true},
+                            {label: "Inscritos en secci&oacute;n", name: "Estudiantes inscritos en seccion", enable: true},
                         ]
                     }
             );
@@ -133,9 +137,9 @@ define(['controller/selectionController', 'model/cacheModel', 'model/seccionMast
                         var selection = new App.Controller.SelectionController({"componentId":"enEspera_seccionComponent"});
                         App.Utils.getComponentList('estudianteComponent', function(componentName, model) {
                             if (model.models.length == 0) {
-                                alert('There is no En Espera_seccions to select.');
+                                alert('No hay estudiantes en espera de seccion en la lista');
                             } else {
-                                selection.showSelectionList({list: model, name: 'name', title: 'En Espera_seccion List'});
+                                selection.showSelectionList({list: model, name: 'name', title: 'Lista de estudiantes en espera de esta seccion'});
                             }
                             ;
                         });
@@ -156,9 +160,9 @@ define(['controller/selectionController', 'model/cacheModel', 'model/seccionMast
                         var selection = new App.Controller.SelectionController({"componentId":"inscritos_seccionComponent"});
                         App.Utils.getComponentList('estudianteComponent', function(componentName, model) {
                             if (model.models.length == 0) {
-                                alert('There is no Inscritos_seccions to select.');
+                                alert('No hay estudiantes inscritos en la lista');
                             } else {
-                                selection.showSelectionList({list: model, name: 'name', title: 'Inscritos_seccion List'});
+                                selection.showSelectionList({list: model, name: 'name', title: 'Lista de inscritos en seccion'});
                             }
                             ;
                         });
