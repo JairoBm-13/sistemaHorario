@@ -31,7 +31,7 @@ define(['controller/_profesorController','delegate/profesorDelegate'], function(
     App.Controller.ProfesorController = App.Controller._ProfesorController.extend({
         tipo:function(params)
         {
-             var mensaje = "El profesor es de Planta";
+            var mensaje = "El profesor es de Planta";
             var aniosExp = params.aniosExp;
             var public = params.numPublic;
             
